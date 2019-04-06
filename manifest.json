@@ -7,7 +7,8 @@
         {
           "Image": "resources/actionDefaultImage",
           "TitleAlignment": "middle",
-          "FontSize": "10"
+          "FontSize": "10",
+          "TitleColor": "black"
         }
       ],
       "SupportedInMultiActions": true,
