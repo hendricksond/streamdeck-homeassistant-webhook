@@ -1,0 +1,38 @@
+{
+  "Actions": [
+    {
+      "Icon": "resources/actionIcon",
+      "Name": "Webhook Button",
+      "States": [
+        {
+          "Image": "resources/actionDefaultImage",
+          "TitleAlignment": "bottom",
+          "FontSize": "10"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Call a Home Assistant webhook when the button is pressed.",
+      "UUID": "com.hendricksond.homeassistant.action"
+    } 
+  ],
+  "Author": "hendricksond",
+  "CodePath": "plugin/main.html",
+  "Description": "Call Home Assistant webhooks from the Elgato Stream Deck.",
+  "Name": "Home Assistant Webhook",
+  "Icon": "resources/pluginIcon",
+  "URL": "https://github.com/hendricksond/streamdeck-homeassistant-webhook",
+  "PropertyInspectorPath": "propertyinspector/main_pi.html",
+  "Version": "1.0",
+  "Category": "Home Assistant Webhook",
+  "CategoryIcon": "resources/categoryIcon",
+  "OS": [
+    {
+      "MinimumVersion" : "10.11",
+      "Platform": "mac"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion" : "10"
+    }
+  ]
+}

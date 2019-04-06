@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>com.hendricksond.homeassistant.pi</title>
+        <link rel="stylesheet" href="sdpi.css">
+        <script src="main_pi.js"></script>
+    </head>
+    <body>
+        <div class="sdpi-wrapper hidden">
+            <div class="sdpi-heading">SETTINGS</div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Server URL</div>
+                <input class="sdpi-item-value" id="serverurl" value="" onchange="updateSettings()" placeholder="Server URL">
+            </div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Webhook ID</div>
+                <input class="sdpi-item-value" id="webhookid" value="" onchange="updateSettings()" placeholder="Webhook ID (from hass config)">
+            </div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Service</div>
+                <input class="sdpi-item-value" id="service" value="" onchange="updateSettings()" placeholder="Service to call (optional)">
+            </div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Entities</div>
+                <input class="sdpi-item-value" id="entities" value="" onchange="updateSettings()" placeholder="List of entities for action (optional)">
+            </div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Parameter</div>
+                <input class="sdpi-item-value" id="parameter" value="" onchange="updateSettings()" placeholder="Parameter value for action (optional)">
+            </div>
+        </div>
+    </body>
+</html>
