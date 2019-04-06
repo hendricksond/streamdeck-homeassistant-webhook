@@ -3,6 +3,8 @@
 
 This plugin should work on both Windows 10 and macOS.
 
+Based on the [streamdeck-ifttt plugin](https://github.com/tobimori/streamdeck-ifttt) by tobimori.
+
 ## How to use
 
 You will need to define webhooks in your Home Assistant automations configuration, then configure the Stream Deck's buttons to call the webhooks.
