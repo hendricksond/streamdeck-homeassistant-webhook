@@ -49,7 +49,7 @@ For a more advanced configuration, you can use the optional `service`, `entities
 
 ### Configuring a button
 
-Drag and drop the Webhook Button action from the Home Assistant Webhook category in the action list to an open button. Click the button to configure it. Fill out the fields.
+Drag and drop the Webhook Button action from the Home Assistant category in the action list to an open button. Click the button to configure it. Fill out the fields.
 
 #### Server URL
 The base URL of your server. Do not include a trailing slash.
