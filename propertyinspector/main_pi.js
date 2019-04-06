@@ -2,7 +2,7 @@ let websocket = null,
     uuid = null,
     actionInfo = {};
 
-function connectSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
+function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
     uuid = inUUID;
 
     actionInfo = JSON.parse(inActionInfo);

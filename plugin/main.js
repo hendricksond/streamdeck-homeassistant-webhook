@@ -103,7 +103,7 @@ const webhookAction = {
     }
 };
 
-function connectSocket(inPort, inPluginUUID, inRegisterEvent, inInfo)
+function connectElgatoStreamDeckSocket(inPort, inPluginUUID, inRegisterEvent, inInfo)
 {
     pluginUUID = inPluginUUID;
 
