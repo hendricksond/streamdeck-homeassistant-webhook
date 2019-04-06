@@ -5,7 +5,7 @@ This plugin should work on both Windows 10 and macOS.
 
 ## How to use
 
-You will need to define webhooks in your Home Assistant automations configuration, and then configure the Stream Deck's buttons to call the webhooks.
+You will need to define webhooks in your Home Assistant automations configuration, then configure the Stream Deck's buttons to call the webhooks.
 
 ### Installation
 
@@ -49,16 +49,30 @@ For a more advanced configuration, you can use the optional `service`, `entities
 
 Drag and drop the Webhook Button action from the Home Assistant Webhook category in the action list to an open button. Click the button to configure it. Fill out the fields.
 
-Server URL: The base URL of your server. Do not include a trailing slash.
+#### Server URL
+The base URL of your server. Do not include a trailing slash.
+
 Example: `http://192.168.1.2:8123`
 
-Webhook ID: The random text that you generated (or picked) for the `webhook_id` in your automation configuration.
+#### Webhook ID
+The random text that you generated (or picked) for the `webhook_id` in your automation configuration.
 
-Service: The optional service you would like to call. Accessible in your automation configuration as `trigger.json.service`.
+Example: `replace_this_with_some_random_text`
 
-Entities: One or more comma-separated entities. Accessible in your automation configuration as `trigger.json.entities`.
+#### Service
+The optional service you would like to call. Accessible in your automation configuration as `trigger.json.service`.
 
-Parameter: A raw value that you can use in your automation. Maybe a brightness level, or a color name, or some other useful data. Accessible in your automation configuration as `trigger.json.parameter`.
+Example: `light.turn_on`
+
+#### Entities
+One or more comma-separated entities. Accessible in your automation configuration as `trigger.json.entities`.
+
+Example: `light.office, light.living_room`
+
+#### Parameter
+A raw value that you can use in your automation. Maybe a brightness level, or a color name, or some other useful data. Accessible in your automation configuration as `trigger.json.parameter`.
+
+Example: `50`
 
 ## Support
 
