@@ -12,7 +12,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Call a Home Assistant webhook when the button is pressed.",
-      "UUID": "com.hendricksond.homeassistant.action"
+      "UUID": "com.hendricksond.homeassistant.webhook.action"
     } 
   ],
   "Author": "hendricksond",

@@ -4,7 +4,7 @@ let websocket = null,
 
 const webhookAction = {
 
-    type : "com.hendricksond.homeassistant.action",
+    type : "com.hendricksond.homeassistant.webhook.action",
 
     onKeyDown : function(context, settings, coordinates, userDesiredState) {
     },
