@@ -1,8 +1,8 @@
-var websocket = null;
-var pluginUUID = null;
-var settingsCache = {};
+let websocket = null,
+    pluginUUID = null,
+    settingsCache = {};
 
-var webhookAction = {
+const webhookAction = {
 
     type : "com.hendricksond.homeassistant.action",
 
@@ -11,30 +11,30 @@ var webhookAction = {
 
     onKeyUp : function(context, settings, coordinates, userDesiredState) {
         settingsCache[context] = settings;
-        var serverurl = "";
+        let serverurl = "";
         if(settings != null && settings.hasOwnProperty('serverurl')){
             serverurl = settings["serverurl"];
         }
-        var webhookid = "";
+        let webhookid = "";
         if(settings != null && settings.hasOwnProperty('webhookid')){
             webhookid = settings["webhookid"];
         }
-        var service = "";
+        let service = "";
         if(settings != null && settings.hasOwnProperty('service')){
             service = settings["service"];
         }
-        var entities = "";
+        let entities = "";
         if(settings != null && settings.hasOwnProperty('entities')){
             entities = settings["entities"];
         }
-        var parameter = "";
+        let parameter = "";
         if(settings != null && settings.hasOwnProperty('parameter')){
             parameter = settings["parameter"];
         }
         if(serverurl == "" || webhookid == "") {
             this.ShowReaction(context, "Alert");
         } else {
-            var url = serverurl + '/api/webhook/' + webhookid;
+            const url = serverurl + '/api/webhook/' + webhookid;
             
             const request = new XMLHttpRequest();
             request.open("POST", url);
@@ -60,11 +60,11 @@ var webhookAction = {
 
     onWillAppear : function(context, settings, coordinates) {
         settingsCache[context] = settings;
-        var serverurl = "";
+        let serverurl = "";
         if(settings != null && settings.hasOwnProperty('serverurl')){
             serverurl = settings["serverurl"];
         }
-        var webhookid = "";
+        let webhookid = "";
         if(settings != null && settings.hasOwnProperty('webhookid')){
             webhookid = settings["webhookid"];
         }
@@ -74,7 +74,7 @@ var webhookAction = {
     },
 
     ShowReaction : function(context, type) {
-        var json = {
+        const json = {
             "event": "show" + type,
             "context": context,
         };
@@ -82,7 +82,7 @@ var webhookAction = {
     },
 
     SetSettings : function(context, settings) {
-        var json = {
+        const json = {
             "event": "setSettings",
             "context": context,
             "payload": settings
@@ -92,7 +92,7 @@ var webhookAction = {
     },
 
     SendSettings : function(action, context) {
-        var json = {
+        const json = {
             "action": action,
             "event": "sendToPropertyInspector",
             "context": context,
@@ -112,7 +112,7 @@ function connectSocket(inPort, inPluginUUID, inRegisterEvent, inInfo)
 
     function registerPlugin(inPluginUUID)
     {
-        var json = {
+        const json = {
             "event": inRegisterEvent,
             "uuid": inPluginUUID
         };
@@ -129,32 +129,30 @@ function connectSocket(inPort, inPluginUUID, inRegisterEvent, inInfo)
     websocket.onmessage = function (evt)
     {
         // Received message from Stream Deck
-        var jsonObj = JSON.parse(evt.data);
-        var event = jsonObj['event'];
-        var action = jsonObj['action'];
-        
-        var context = jsonObj['context'];
-        var jsonPayload = jsonObj['payload'];
+        const jsonObj = JSON.parse(evt.data);
+        const event = jsonObj['event'];
+        const action = jsonObj['action'];
+        const context = jsonObj['context'];
+        const jsonPayload = jsonObj['payload'];
 
         if(event == "keyDown")
         {
-            var settings = jsonPayload['settings'];
-            var coordinates = jsonPayload['coordinates'];
-            var userDesiredState = jsonPayload['userDesiredState'];
-            console.log(settings);
+            const settings = jsonPayload['settings'];
+            const coordinates = jsonPayload['coordinates'];
+            const userDesiredState = jsonPayload['userDesiredState'];
             webhookAction.onKeyDown(context, settings, coordinates, userDesiredState);
         }
         else if(event == "keyUp")
         {
-            var settings = jsonPayload['settings'];
-            var coordinates = jsonPayload['coordinates'];
-            var userDesiredState = jsonPayload['userDesiredState'];
+            const settings = jsonPayload['settings'];
+            const coordinates = jsonPayload['coordinates'];
+            const userDesiredState = jsonPayload['userDesiredState'];
             webhookAction.onKeyUp(context, settings, coordinates, userDesiredState);
         }
         else if(event == "willAppear")
         {
-            var settings = jsonPayload['settings'];
-            var coordinates = jsonPayload['coordinates'];
+            const settings = jsonPayload['settings'];
+            const coordinates = jsonPayload['coordinates'];
             webhookAction.onWillAppear(context, settings, coordinates);
         }
         else if(event == "sendToPlugin") {

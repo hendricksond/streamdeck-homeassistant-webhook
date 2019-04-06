@@ -1,4 +1,4 @@
-var websocket = null,
+let websocket = null,
     uuid = null,
     actionInfo = {};
 
@@ -9,7 +9,7 @@ function connectSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
     websocket = new WebSocket('ws://localhost:' + inPort);
 
     websocket.onopen = function () {
-        var json = {
+        const json = {
             event:  inRegisterEvent,
             uuid:   inUUID
         };
@@ -20,26 +20,26 @@ function connectSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
 
     websocket.onmessage = function (evt) {
         // Received message from Stream Deck
-        var jsonObj = JSON.parse(evt.data);
+        const jsonObj = JSON.parse(evt.data);
         if (jsonObj.event === 'sendToPropertyInspector') {
-            var payload = jsonObj.payload;
+            const payload = jsonObj.payload;
             if (payload.error) {
                 return;
             }
 
-            var serverurl = document.getElementById('serverurl');
+            const serverurl = document.getElementById('serverurl');
             serverurl.value = payload.serverurl;
 
-            var webhookid = document.getElementById('webhookid');
+            const webhookid = document.getElementById('webhookid');
             webhookid.value = payload.webhookid;
 
-            var service = document.getElementById('service');
+            const service = document.getElementById('service');
             service.value = payload.service;
 
-            var entities = document.getElementById('entities');
+            const entities = document.getElementById('entities');
             entities.value = payload.entities;
 
-            var parameter = document.getElementById('parameter');
+            const parameter = document.getElementById('parameter');
             parameter.value = payload.parameter;
 
             if(serverurl.value == "undefined") {
@@ -75,7 +75,7 @@ function revealPropertyInspector() {
 
 function requestSettings() {
     if (websocket) {
-        var payload = {};
+        let payload = {};
         payload.type = "requestSettings";
         const json = {
             "action": actionInfo['action'],
@@ -89,20 +89,19 @@ function requestSettings() {
 
 function updateSettings() {
     if (websocket) {
-        var serverurl = document.getElementById('serverurl');
-        var webhookid = document.getElementById('webhookid');
-        var service = document.getElementById('service');
-        var entities = document.getElementById('entities');
-        var parameter = document.getElementById('parameter');
+        const serverurl = document.getElementById('serverurl');
+        const webhookid = document.getElementById('webhookid');
+        const service = document.getElementById('service');
+        const entities = document.getElementById('entities');
+        const parameter = document.getElementById('parameter');
 
-        var payload = {};
+        let payload = {};
         payload.type = "updateSettings";
         payload.serverurl = serverurl.value;
         payload.webhookid = webhookid.value;
         payload.service = service.value;
         payload.entities = entities.value;
         payload.parameter = parameter.value;
-        console.log(payload);
         const json = {
             "action": actionInfo['action'],
             "event": "sendToPlugin",
