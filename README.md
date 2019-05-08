@@ -3,7 +3,7 @@
 
 This plugin should work on both Windows 10 and macOS.
 
-Based on the [streamdeck-ifttt plugin](https://github.com/tobimori/streamdeck-ifttt) by tobimori.
+Based on the [streamdeck-ifttt plugin](https://github.com/tobimori/streamdeck-ifttt) by tobimori. The main difference is that this plugin lets you configure and call Home Assistant webhooks directly, without using IFTTT as a middleman.
 
 ## How to use
 
